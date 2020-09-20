@@ -1,3 +1,5 @@
+from string import maketrans
+
 def mirror(s):
     result = ""
     for i in s:
@@ -14,5 +16,13 @@ def mirror(s):
             result += i
     return result
 
+
+def mirror2(s):
+    ALP = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" 
+    alp = "abcdefghijklmnopqrstuvwxyz"
+    mapped = maketrans(alp + ALP , alp[::-1] + ALP[::-1])
+    return s.translate(mapped)
+
+
 s = "Geeks for geeks is + fuck MODI"
-print mirror(s)
+print mirror2(s)
